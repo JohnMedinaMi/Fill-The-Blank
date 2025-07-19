@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fill The Blank</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50%;
+    }
+
+    input {
+      font-size: 20px;
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      margin-top: 20px;
+      display: inline-block;
+    }
+    
+    button {
+      font-size: 18px;
+      margin: 2px;
+      padding: 10px 13px;
+    }
+
+    .erase {
+      background-color: #f88;
+    }
+
+    .enter {
+      background-color: #8f8;
+    }
+
+    #videoContainer {
+      display: none;
+      margin-top: 70%;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="main">
+    <div class="button">
+      <h1>Fill The Blank</h1>
+    <h2>_at_t_l_g</h2>
+    <input type="text" id="text" placeholder="Spell mo"><br>
+        <button onclick="typeLetter('q')">q</button>
+        <button onclick="typeLetter('w')">w</button>
+        <button onclick="typeLetter('e')">e</button>
+        <button onclick="typeLetter('r')">r</button>
+        <button onclick="typeLetter('t')">t</button>
+        <button onclick="typeLetter('y')">y</button>
+        <button onclick="typeLetter('u')">u</button>
+        <button onclick="typeLetter('i')">i</button>
+        <button onclick="typeLetter('o')">o</button>
+        <button onclick="typeLetter('p')">p</button>
+        <button onclick="typeLetter('a')">a</button>
+        <button onclick="typeLetter('s')">s</button>
+        <button onclick="typeLetter('d')">d</button>
+        <button onclick="typeLetter('f')">f</button>
+        <button onclick="typeLetter('g')">g</button>
+        <button onclick="typeLetter('h')">h</button>
+        <button onclick="typeLetter('j')">j</button>
+        <button onclick="typeLetter('k')">k</button>
+        <button onclick="typeLetter('l')">l</button>
+        <button onclick="typeLetter('z')">z</button>
+        <button onclick="typeLetter('x')">x</button>
+        <button onclick="typeLetter('c')">c</button>
+        <button onclick="typeLetter('v')">v</button>
+        <button onclick="typeLetter('b')">b</button>
+        <button onclick="typeLetter('n')">n</button>
+        <button onclick="typeLetter('m')">m</button>
+        <button class="erase" onclick="erase()">Erase</button>
+        <button class="enter" onclick="checkAnswer()">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="videoContainer">
+    <video id="video" autoplay>
+      <source src="matutulog.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <script>
+    function typeLetter(letter) {
+      document.getElementById("text").value += letter;
+    }
+
+    function erase() {
+      let box = document.getElementById("text");
+      box.value = box.value.slice(0, -1);
+    }
+
+    function checkAnswer() {
+      let value = document.getElementById("text").value;
+      if (value === "matutulog", "Matutulog") {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("videoContainer").style.display = "block";
+        document.getElementById("video").play();
+      } else {
+        alert("Mali. Subukan muli.");
+      }
+    }
+  </script>
+
+</body>
+</html>
